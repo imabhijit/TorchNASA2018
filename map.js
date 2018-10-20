@@ -63,20 +63,27 @@ function initMap() {
 
     }
 
-    $.getJSON("./test.json", function(json) {
-        console.log(json[0].msg);
-        makeMarkers(json);// this will show the info it in firebug console
-    });
+    function delayMarkers() {
 
-    function delay() {
+        $.getJSON("./test.json", function (json) {
+            console.log(json[0].msg);
+            makeMarkers(json);// this will show the info it in firebug console
+        });
+    }
+
+    function delayAdd() {
         for (var i = 0; i < markers.length; i++) {
             addMarker(markers[i]);
         }
     }
 
-    setTimeout(delay, 2000);
+    function update() {
+        delayMarkers();
+        setTimeout(delayAdd, 2000);
+        //Associate the styled map with the MapTypeId and set it to display.
+        map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
+    }
 
-    //Associate the styled map with the MapTypeId and set it to display.
-    map.mapTypes.set('styled_map', styledMapType);
-    map.setMapTypeId('styled_map');
+    setInterval(update, 5000);
 }
