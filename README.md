@@ -1,18 +1,53 @@
-THE CHALLENGE | SPOT THAT FIRE!
+# TORCH | SPOT THAT FIRE!
 
-Build a crowdsourcing tool for citizens to contribute to early detection, verification, tracking, visualization, and notification of wildfires.
+## Challenge: Build a crowdsourcing tool for citizens to contribute to early detection, verification, tracking, visualization, and notification of wildfires. Torch is a high-impact, creative, innovative, scientific, responsive, user friendly solution that will help many people by improving the data set for fires and improving the response time. 
 
-Impact
-How much impact (quality and quantity) can this project have? Does it solve a big problem or a little problem? Will it inspire or help many, or a few?
+## Core Features
+1. early detection (near real time 3-5 min)
+2. Verification: other crowdsourced data (3-5 min), drone (30 minutes), satellite imagery (3-4 hours after), 
+3. Tracking: time stamp, knowing position of the fire as a function of time
+4. Visualization: single page map application of coordinates
+5. notification of wildfires: email, Twitter, SMS, app notification on phone based on location
+6. Distance of notification/applicability
+7. Frequency of notification: asap, summary of a day
+## Stretch Features
+1. Voice processing and gathering of incoming data
+2. Tweets?
+3. Images added to fire data set
+4. Prediction via weather status
 
-Technology Innovation
-How creative/innovative is the approach? Is the project novel and something that hasn’t been attempted before, or is it an incremental improvement on something that already exists?
 
-Validity
-Is the solution scientifically valid? Will it do what it sets out to do? Can it work in the real world?
+## Team Members
+- [Lara Tran](https://github.com/lara-tran)
+- [Abhijit Gupta](https://github.com/imabhijit)
+- [David Wawryko](https://github.com/digitalfabric92)
+- [Viveka Anban](https://github.com/viveanban)
+- [Grace Wijaya](https://github.com/WijayaG)
 
-Completeness of the solution
-Is this project responsive to the challenge for which it was submitted? Is it a complete solution or does it have a long way to go?
+## Inspiration
+##### 
 
-User Experience / Usability
-How usable or user friendly is the solution?
+## What it does
+##### 
+
+## How we built it
+##### 
+##### 
+
+## Challenges
+##### 
+
+## Accomplishments
+##### 
+
+## What we learned
+##### 
+
+## What's next?
+##### 
+
+## Built With
+##### node.js, google maps api, google geocoder API
+
+## Screenshots
+![1](https://github.com/digitalfabric92/torch-spaceapps/blob/images/screenshot1.png)
