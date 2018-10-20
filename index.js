@@ -10,7 +10,7 @@ var twitter = new Twit(keys);
 var obj = {table: []};
 
 function getUpdates() {
-    twitter.get('search/tweets', {q: '#nasatorch', count: 4}, function (err, data, response) {
+    twitter.get('search/tweets', {q: '#nasatorch', count: 20}, function (err, data, response) {
         var torchArr = [];
         data.statuses.forEach(tweet => {
             let longitude = null;
@@ -73,5 +73,4 @@ function getUpdates() {
 }
 
 //For Dev (Actual delay = 1000*60*5)
-// setInterval(test, 5000);
-getUpdates();
+setInterval(getUpdates, 1000*60*5);
