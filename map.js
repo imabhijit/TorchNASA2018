@@ -62,9 +62,9 @@ function initMap() {
 
     }
 
-    $.getJSON("../test.json", function(json) {
-        console.log(json);
-        makeMarkers(json);// this will show the info it in firebug console
+    $.getJSON("./test.json", function(json) {
+        console.log(json[0].msg); //this works
+        makeMarkers(json);
     });
 
     for (var i = 0; i < markers.length; i++) {
