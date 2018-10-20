@@ -59,21 +59,21 @@
       anchor: new google.maps.Point(0, 0) // anchor
     };
 
-    var markers = [{
-        coords: {
-          lat: 45.4215,
-          lng: -75.6972
-        },
-        content: '<h1>Ottawa QC</h1>'
-      },
-      {
-        coords: {
-          lat: 45.5017,
-          lng: -73.5673
-        },
-        content: '<h1>Montreal QC</h1>'
+  var markers = [];
+  function makeMarkers(torchArr){
+
+    for (var i = 0; i < torchArr.length;i++){
+      markers[i] = {
+          content: '<p>' + torchArr.msg + '</p>'
+                  + '<p>' + torchArr.time + '</p>' ,
+          coords:{
+            torchArr.lat, torchArr.lng
+          }
+
       }
-    ]
+    }
+
+  }
 
     function addMarker(props) {
       var marker = new google.maps.Marker({
@@ -91,6 +91,7 @@
           infoWindow.open(map, marker);
         });
       }
+
     }
     for (var i = 0; i < markers.length; i++) {
       addMarker(markers[i]);
