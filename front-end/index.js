@@ -32,7 +32,12 @@ function getUpdates() {
             // console.log("torchArr After------------------------------" + JSON.stringify(torchArr));
 
         });
-        return torchArr;
+        // return torchArr;
+        return [
+            {msg: 'hello mk1', lng: -73.7124, lat: 45.6066, img: null, time: "101"},
+            {msg: 'hello mk2', lng: -74.59124, lat: 46.11066, img: null, time: "101"},
+            {msg: 'hello mk3', lng: -79.7124, lat: 43.6066, img: null, time: "101"}
+        ];
     });
 }
 
