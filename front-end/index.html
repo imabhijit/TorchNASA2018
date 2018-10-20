@@ -54,21 +54,48 @@
 
     var iconFIRE = {
       url: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/129/fire_1f525.png',
-      scaledSize: new google.maps.Size(50, 50), // scaled size
+      scaledSize: new google.maps.Size(10, 10), // scaled size
       origin: new google.maps.Point(0,0), // origin
       anchor: new google.maps.Point(0, 0) // anchor
     };
 
-    var marker = new google.maps.Marker({
-      position: {lat:  45.518271, lng: -73.588447},
-      map: map,
-      icon: iconFIRE,
-      url: ''
-    });
+  var markers = [];
+  function makeMarkers(torchArr){
 
-    google.maps.event.addListener(marker, 'click', function() {
-      window.location.href = this.url;
-    });
+    for (var i = 0; i < torchArr.length;i++){
+      markers[i] = {
+          content: '<p>' + torchArr.msg + '</p>'
+                  + '<p>' + torchArr.time + '</p>' ,
+          coords:{
+            torchArr.lat, torchArr.lng
+          }
+
+      }
+    }
+
+  }
+
+    function addMarker(props) {
+      var marker = new google.maps.Marker({
+        position: props.coords,
+        map: map,
+        icon: iconFIRE,
+        //icon:props.iconImage
+      });
+      // Check content
+      if (props.content) {
+        var infoWindow = new google.maps.InfoWindow({
+          content: props.content
+        });
+        marker.addListener('click', function() {
+          infoWindow.open(map, marker);
+        });
+      }
+
+    }
+    for (var i = 0; i < markers.length; i++) {
+      addMarker(markers[i]);
+    }
 
     //Associate the styled map with the MapTypeId and set it to display.
     map.mapTypes.set('styled_map', styledMapType);
@@ -80,4 +107,3 @@
 </script>
 </body>
 </html>
-
