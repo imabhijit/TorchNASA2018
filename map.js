@@ -31,7 +31,6 @@ function initMap() {
 
     var markers = [];
     function makeMarkers(torchArr){
-
         for (var i = 0; i < torchArr.length;i++){
             markers[i] = {
                 content: '<p>' + torchArr[i].msg + '</p>' + '<p>' + torchArr[i].time + '</p>',
