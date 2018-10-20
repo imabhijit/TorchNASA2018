@@ -7,8 +7,8 @@ function initMap() {
     // Create a map object, and include the MapTypeId to add
     // to the map type control.
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat:  45.499847, lng: -73.562633},
-        zoom: 3,
+        center: {lat:  45.4914, lng: -73.5605},
+        zoom: 20 ,
         mapTypeControlOptions: {
             mapTypeIds: [google.maps.MapTypeId.ROADMAP]
         }, // here´s the array of controls
@@ -67,9 +67,13 @@ function initMap() {
         makeMarkers(json);// this will show the info it in firebug console
     });
 
-    for (var i = 0; i < markers.length; i++) {
-        addMarker(markers[i]);
+    function delay() {
+        for (var i = 0; i < markers.length; i++) {
+            addMarker(markers[i]);
+        }
     }
+
+    setTimeout(delay, 2000);
 
     //Associate the styled map with the MapTypeId and set it to display.
     map.mapTypes.set('styled_map', styledMapType);

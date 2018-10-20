@@ -10,7 +10,7 @@ var twitter = new Twit(keys);
 var obj = {table: []};
 
 function getUpdates() {
-    twitter.get('search/tweets', {q: '#nasatorch', count: 4}, function (err, data, response) {
+    twitter.get('search/tweets', {q: '#', count: 4}, function (err, data, response) {
         var torchArr = [];
         data.statuses.forEach(tweet => {
             let longitude = null;
