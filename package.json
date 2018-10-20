@@ -1,0 +1,26 @@
+{
+  "name": "nasa-torch",
+  "version": "1.0.0",
+  "description": "Update Firemap via twitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalfabric92/torch-spaceapps.git"
+  },
+  "keywords": [
+    "torch",
+    "fire"
+  ],
+  "author": "Abhijit Viveka Lara David Grace",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digitalfabric92/torch-spaceapps/issues"
+  },
+  "homepage": "https://github.com/digitalfabric92/torch-spaceapps#readme",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
