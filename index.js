@@ -10,7 +10,7 @@ var twitter = new Twit(keys);
 var obj = {table: []};
 
 function getUpdates() {
-    twitter.get('search/tweets', {q: '#', count: 4}, function (err, data, response) {
+    twitter.get('search/tweets', {q: '#nasatorch', count: 4}, function (err, data, response) {
         var torchArr = [];
         data.statuses.forEach(tweet => {
             let longitude = null;
@@ -58,7 +58,7 @@ function getUpdates() {
             // });
         });
         json = JSON.stringify(torchArr); //convert it back to json
-        fs.writeFile('test.txt', json, 'utf8', function writeCallback(err){
+        fs.writeFile('test.json', json, 'utf8', function writeCallback(err){
             if(err){
                 console.log(err);
             }

@@ -30,6 +30,7 @@ function initMap() {
     };
 
     var markers = [];
+
     function makeMarkers(torchArr){
         for (var i = 0; i < torchArr.length;i++){
             markers[i] = {
