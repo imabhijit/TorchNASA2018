@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Torch - Crowdsourced Fire Detection</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta property="og:image:width" content="516">
+    <meta property="og:image:height" content="271">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+  function initMap() {
+    // Create a new StyledMapType object, passing it an array of styles,
+    // and the name to be displayed on the map type control.
+    var styledMapType = new google.maps.StyledMapType(
+      [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f5f5f5"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#9a908c"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#1F5FAB"},{"visibility":"on"}]}],{name: 'Styled Map'});
+
+    // Create a map object, and include the MapTypeId to add
+    // to the map type control.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat:  45.499847, lng: -73.562633},
+      zoom: 3,
+      mapTypeControlOptions: {
+        mapTypeIds: [google.maps.MapTypeId.ROADMAP]
+      }, // here´s the array of controls
+      disableDefaultUI: true, // a way to quickly hide all controls
+      mapTypeControl: true,
+      scaleControl: true,
+      zoomControl: true,
+      zoomControlOptions: {
+        style: google.maps.ZoomControlStyle.LARGE
+      },
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var iconFIRE = {
+      url: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/129/fire_1f525.png',
+      scaledSize: new google.maps.Size(50, 50), // scaled size
+      origin: new google.maps.Point(0,0), // origin
+      anchor: new google.maps.Point(0, 0) // anchor
+    };
+
+    var marker = new google.maps.Marker({
+      position: {lat:  45.518271, lng: -73.588447},
+      map: map,
+      icon: iconFIRE,
+      url: ''
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      window.location.href = this.url;
+    });
+
+    //Associate the styled map with the MapTypeId and set it to display.
+    map.mapTypes.set('styled_map', styledMapType);
+    map.setMapTypeId('styled_map');
+  }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq9CoQQQh0Y2vzQxshOwNDnp06gKY5NjU&callback=initMap">
+</script>
+</body>
+</html>
+
