@@ -34,7 +34,7 @@ function initMap() {
 
  var markers = [];
 
-$.getJSON("./test.txt", function(json) {
+$.getJSON("./test.json", function(json) {
   console.log(json[0].msg);
   makeMarkers(json); // this will show the info it in firebug console
 });
@@ -46,8 +46,7 @@ $.getJSON("./test.txt", function(json) {
       }
       markers[i] = L.marker( [ torchArr[i].lat, torchArr[i].lng],{icon:myIcon}).addTo(map);
       if(torchArr[i].img){
-        markers[i].bindPopup("<p>" + torchArr[i].msg+"</p> <p>" + torchArr[i].time+ "</p><img id =  &quotimages&quot src= "+ torchArr[i].img +">",{maxWidth: "auto"
-}).openPopup();
+        markers[i].bindPopup("<p>" + torchArr[i].msg+"</p> <p>" + torchArr[i].time+ "</p><img src= "+ torchArr[i].img +">").openPopup();
       }else {
         markers[i].bindPopup("<p>" + torchArr[i].msg+"</p> <p>" + torchArr[i].time+ "</p>",{maxWidth: "auto"}).openPopup();
       }

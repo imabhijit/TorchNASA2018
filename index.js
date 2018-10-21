@@ -54,8 +54,6 @@ function getUpdates() {
 
     });
 }
+setInterval(getUpdates, 5000);
 
 
-
-
-setInterval(getUpdates, 2000);
