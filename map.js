@@ -46,10 +46,10 @@ $.getJSON("./test.txt", function(json) {
       }
       markers[i] = L.marker( [ torchArr[i].lat, torchArr[i].lng],{icon:myIcon}).addTo(map);
       if(torchArr[i].img){
-        markers[i].bindPopup("<p>" + torchArr[i].msg+"</p> <p>" + torchArr[i].time+ "</p><img id =  &quotimages&quot src= "+ torchArr[i].img +">",{maxWidth: "auto"
+        markers[i].bindPopup("<p>" + torchArr[i].msg+"</p> <p>" + torchArr[i].time+ "</p><img src= "+ torchArr[i].img +">",{maxWidth: "60"
 }).openPopup();
       }else {
-        markers[i].bindPopup("<p>" + torchArr[i].msg+"</p> <p>" + torchArr[i].time+ "</p>",{maxWidth: "auto"}).openPopup();
+        markers[i].bindPopup("<p>" + torchArr[i].msg+"</p> <p>" + torchArr[i].time+ "</p>",{maxWidth: "300"}).openPopup();
       }
     }
   }
