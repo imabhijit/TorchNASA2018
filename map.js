@@ -29,25 +29,12 @@ function initMap() {
     iconSize: [20, 20]
   });
 
-  //setTimeout(delay, 500);
-
-
-
-  // function makeMarkers(torchArr) {
-  //     for (var i = 0; i < torchArr.length; i++) {
-  //         markers[i] = {
-  //             content: '<p>' + torchArr[i].msg + '</p>' + '<p>' + torchArr[i].time + '</p>' + '<p><img src=' + torchArr[i].img + ' style="width:200px"></p>',
-  //             coords: {lat: torchArr[i].lat, lng: torchArr[i].lng}
-  //         }
-  //     }
-  //
-  // }
 
 
 
  var markers = [];
 
-$.getJSON("./test.json", function(json) {
+$.getJSON("./test.txt", function(json) {
   console.log(json[0].msg);
   makeMarkers(json); // this will show the info it in firebug console
 });
@@ -67,11 +54,7 @@ $.getJSON("./test.json", function(json) {
     }
   }
 
-  // function delay() {
-  //   for (var i = 0; i < markers.length; i++) {
-  //     markers[i].addTo(map);
-  //   }
-  // }
+
 
 
 }
