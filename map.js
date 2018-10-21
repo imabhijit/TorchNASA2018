@@ -34,10 +34,7 @@ function initMap() {
 
  var markers = [];
 
-$.getJSON("./test.json", function(json) {
-  console.log(json[0].msg);
-  makeMarkers(json); // this will show the info it in firebug console
-});
+
 
   function makeMarkers(torchArr) {
     for (var i = 0; i < torchArr.length; i++) {
@@ -53,7 +50,14 @@ $.getJSON("./test.json", function(json) {
     }
   }
 
-
-
-
+  function delayMarkers() {
+          $.getJSON("./test.json", function(json) {
+              console.log(json[0].msg);
+              makeMarkers(json); // this will show the info it in firebug console
+          });
+      }
+      function update() {
+          setTimeout(delayMarkers, 2000);
+      }
+      update();
 }

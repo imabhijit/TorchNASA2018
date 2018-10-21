@@ -15,11 +15,12 @@ var twilio = require('twilio');
 
 
 function sendMessages(){
-    numbers = ['15142986489','15148826923','15145499230'];
+    numbers = [''];
     numbers.forEach( num =>{
     new twilio(accountSid, authToken).messages.create({
-    to: num,
-    from: '+14387957138'
+      body: "Fire Alert! from nasatorch",
+      to: num,
+      from: '+14387957138'
 }).then((message) => console.log(message.sid)).done();
     });
 
@@ -45,13 +46,28 @@ function getUpdates() {
             torchArr.push(t1);
         });
 
-        json = JSON.stringify(torchArr); //convert it back to json
-        fs.writeFile('test.json', json, 'utf8', function writeCallback(err){
-            if(err){
-                console.log(err);
-            }
-        });
 
+        fs.readFile('test.json', function read(err, data) {
+            if (err) {
+                throw err;
+            }
+            let jsonOld = JSON.parse(data);
+            console.log(jsonOld);
+                torchArr = torchArr.concat(jsonOld);
+                json = JSON.stringify(torchArr); //convert it back to json
+                fs.writeFile('test.json', json, 'utf8', function writeCallback(err){
+                    if(err){
+                        console.log(err);
+                    }
+                });
+
+        });
     });
 }
-setInterval(getUpdates, 5000);
+//For Dev (Actual delay = 1000*60*5)
+function foo() {
+    getUpdates();
+    sendMessages();
+}
+foo();
+setInterval(foo, 50000);
