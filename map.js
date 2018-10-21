@@ -7,8 +7,8 @@ function initMap() {
     // Create a map object, and include the MapTypeId to add
     // to the map type control.
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat:  45.4914, lng: -73.5605},
-        zoom: 20 ,
+        center: {lat:  45.5124, lng: -73.55468},
+        zoom: 12 ,
         mapTypeControlOptions: {
             mapTypeIds: [google.maps.MapTypeId.ROADMAP]
         }, // here´s the array of controls
@@ -33,15 +33,26 @@ function initMap() {
 
     function makeMarkers(torchArr){
         for (var i = 0; i < torchArr.length;i++){
+          if(torchArr[i].img){
+            markers[i] = {
+                content: '<p>' + torchArr[i].msg + '</p>' + '<p>' + torchArr[i].time + '</p>'
+                + '<img src=' + torchArr[i].img + ' alt="Bob">',
+                coords:{
+                    lat: torchArr[i].lat, lng: torchArr[i].lng
+                }
+            }
+          }
+          else{
             markers[i] = {
                 content: '<p>' + torchArr[i].msg + '</p>' + '<p>' + torchArr[i].time + '</p>',
                 coords:{
                     lat: torchArr[i].lat, lng: torchArr[i].lng
                 }
-
             }
-        }
 
+          }
+
+        }
     }
 
     function addMarker(props) {

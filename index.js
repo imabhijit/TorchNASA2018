@@ -34,28 +34,7 @@ function getUpdates() {
 
             torchArr.push(t1);
 
-            // Clean table
-            // json = JSON.stringify(obj); //convert it back to json
-            // fs.writeFile('test.json', json, 'utf8', function writeCallback(err){
-            //     if(err){
-            //         console.log(err);
-            //     }
-            // });
 
-            // fs.readFile('test.json', 'utf8', function readFileCallback(err, data){
-            //     if (err){
-            //         console.log(err);
-            //     } else {
-            //         obj = JSON.parse(data); //now it an object
-            //         obj.table.push(t1); //add some data
-            //         json = JSON.stringify(obj); //convert it back to json
-            //         fs.writeFile('test.json', json, 'utf8', function writeCallback(err){
-            //             if(err){
-            //                 console.log(err);
-            //             }
-            //         }); // write it back
-            //     }
-            // });
         });
         json = JSON.stringify(torchArr); //convert it back to json
         fs.writeFile('test.json', json, 'utf8', function writeCallback(err){
@@ -63,12 +42,7 @@ function getUpdates() {
                 console.log(err);
             }
         });
-        // return torchArr;
-        // return [
-        //     {msg: 'hello mk1', lng: -73.7124, lat: 45.6066, img: null, time: "101"},
-        //     {msg: 'hello mk2', lng: -74.59124, lat: 46.11066, img: null, time: "101"},
-        //     {msg: 'hello mk3', lng: -79.7124, lat: 43.6066, img: null, time: "101"}
-        // ];
+
     });
 }
 
